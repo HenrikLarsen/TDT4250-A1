@@ -18,3 +18,4 @@ Model structure
 
 Sample.xmi
 ------
+![Imgur Image](https://imgur.com/X75MTRU)
