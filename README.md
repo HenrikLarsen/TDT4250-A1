@@ -2,5 +2,4 @@
 First assignment in TDT4250 Advanced Software Design
 
 
-
-https://i.imgur.com/aJZGIE8.png
+[img]https://i.imgur.com/aJZGIE8.png[/img]
