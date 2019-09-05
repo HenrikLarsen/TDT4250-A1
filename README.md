@@ -7,6 +7,8 @@ Features in the project:
 - 1 OCL constraint. Checks if the courses have atleast 5 credits.
 - 1 manually Java constraint. Checks if the coursecode is on the right format, using regex. Regex used: "[A-Z]{2,3}[1-9]{4}"
 
+---
+
 Model structure:
 Studyprogram with semesters, Specializations, courses and groups of courses to select among for electives (slots). Solved by using a mandatory ENUM.
 ![Imgur Image](https://i.imgur.com/aJZGIE8.png)
