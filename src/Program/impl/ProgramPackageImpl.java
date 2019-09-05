@@ -516,19 +516,13 @@ public class ProgramPackageImpl extends EPackageImpl implements ProgramPackage {
 		  (this,
 		   source,
 		   new String[] {
-			   "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
+			   "validationDelegates", "http://www.eclipse.org/acceleo/query/1.0"
 		   });
 		addAnnotation
 		  (courseEClass,
 		   source,
 		   new String[] {
-			   "constraints", "minCredits"
-		   });
-		addAnnotation
-		  (semesterEClass,
-		   source,
-		   new String[] {
-			   "constraints", "min30Credits"
+			   "constraints", "minCredits courseCodeFormat"
 		   });
 	}
 
@@ -541,10 +535,10 @@ public class ProgramPackageImpl extends EPackageImpl implements ProgramPackage {
 	protected void create_1Annotations() {
 		String source = "http://www.eclipse.org/acceleo/query/1.0";
 		addAnnotation
-		  (semesterEClass,
+		  (courseEClass,
 		   source,
 		   new String[] {
-			   "min30Credits", "OCL"
+			   "minCredits", "self.credit->sum() <= 5.0"
 		   });
 	}
 

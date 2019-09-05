@@ -19,7 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see Program.ProgramPackage#getCourse()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='minCredits'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='minCredits courseCodeFormat'"
+ *        annotation="http://www.eclipse.org/acceleo/query/1.0 minCredits='self.credit-&gt;sum() &lt;= 5.0'"
  * @generated
  */
 public interface Course extends EObject {

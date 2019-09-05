@@ -21,8 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see Program.ProgramPackage#getSemester()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='min30Credits'"
- *        annotation="http://www.eclipse.org/acceleo/query/1.0 min30Credits='OCL'"
+ * @model
  * @generated
  */
 public interface Semester extends EObject {

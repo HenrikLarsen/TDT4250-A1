@@ -137,21 +137,53 @@ public class ProgramValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(course, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(course, diagnostics, context);
 		if (result || diagnostics != null) result &= validateCourse_minCredits(course, diagnostics, context);
+		if (result || diagnostics != null) result &= validateCourse_courseCodeFormat(course, diagnostics, context);
 		return result;
 	}
 
 	/**
+	 * The cached validation expression for the minCredits constraint of '<em>Course</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String COURSE__MIN_CREDITS__EEXPRESSION = "self.credit->sum() <= 5.0";
+
+	
+	/**
 	 * Validates the minCredits constraint of '<em>Course</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @NOT generated
+	 * @generated
 	 */
 	public boolean validateCourse_minCredits(Course course, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(ProgramPackage.Literals.COURSE,
+				 course,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "minCredits",
+				 COURSE__MIN_CREDITS__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * Validates the courseCodeFormat constraint of '<em>Course</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * NOT @generated
+	 */
+	public boolean validateCourse_courseCodeFormat(Course course, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		// TODO implement the constraint
 		// -> specify the condition that violates the constraint
 		// -> verify the diagnostic details, including severity, code, and message
 		// Ensure that you remove @generated or mark it @generated NOT
-		if(course.getCredit() < 5) {
+		String pattern = "[A-Z]{2,3}[1-9]{4}";
+		if (!course.getCode().matches(pattern)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(createDiagnostic
@@ -159,7 +191,7 @@ public class ProgramValidator extends EObjectValidator {
 						 DIAGNOSTIC_SOURCE,
 						 0,
 						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "minCredits", getObjectLabel(course, context) },
+						 new Object[] { "courseCodeFormat", getObjectLabel(course, context) },
 						 new Object[] { course },
 						 context));
 			}
@@ -174,45 +206,7 @@ public class ProgramValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSemester(Semester semester, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(semester, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(semester, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(semester, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(semester, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(semester, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(semester, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(semester, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(semester, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(semester, diagnostics, context);
-		if (result || diagnostics != null) result &= validateSemester_min30Credits(semester, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * Validates the min30Credits constraint of '<em>Semester</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateSemester_min30Credits(Semester semester, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "min30Credits", getObjectLabel(semester, context) },
-						 new Object[] { semester },
-						 context));
-			}
-			return false;
-		}
-		return true;
+		return validate_EveryDefaultConstraint(semester, diagnostics, context);
 	}
 
 	/**
