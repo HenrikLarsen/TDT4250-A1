@@ -3,4 +3,4 @@ First assignment in TDT4250 Advanced Software Design
 
 
 
-[test](https://i.imgur.com/aJZGIE8.png)
+(https://i.imgur.com/aJZGIE8.png)
