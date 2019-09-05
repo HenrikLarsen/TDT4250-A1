@@ -49,16 +49,6 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getCode() <em>Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,24 +100,11 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ProgramPackage.SEMESTER__NAME, oldName, name));
+		return "Semester " + code;
 	}
 
 	/**
@@ -207,9 +184,6 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ProgramPackage.SEMESTER__NAME:
-				setName((String)newValue);
-				return;
 			case ProgramPackage.SEMESTER__CODE:
 				setCode((String)newValue);
 				return;
@@ -229,9 +203,6 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ProgramPackage.SEMESTER__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case ProgramPackage.SEMESTER__CODE:
 				setCode(CODE_EDEFAULT);
 				return;
@@ -251,7 +222,7 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ProgramPackage.SEMESTER__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case ProgramPackage.SEMESTER__CODE:
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
 			case ProgramPackage.SEMESTER__SEMESTER_COURSES:
@@ -270,9 +241,7 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", code: ");
+		result.append(" (code: ");
 		result.append(code);
 		result.append(')');
 		return result.toString();

@@ -30,22 +30,11 @@ public interface Semester extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
 	 * @see Program.ProgramPackage#getSemester_Name()
-	 * @model
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	String getName();
-
-	/**
-	 * Sets the value of the '{@link Program.Semester#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' attribute.
