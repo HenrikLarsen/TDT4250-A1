@@ -147,7 +147,7 @@ public class ProgramValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String COURSE__MIN_CREDITS__EEXPRESSION = "self.credit->sum() <= 5.0";
+	protected static final String COURSE__MIN_CREDITS__EEXPRESSION = "self.credit->sum() >= 5.0";
 
 	
 	/**
@@ -175,13 +175,10 @@ public class ProgramValidator extends EObjectValidator {
 	 * Validates the courseCodeFormat constraint of '<em>Course</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * NOT @generated
+	 * @generated NOT
 	 */
 	public boolean validateCourse_courseCodeFormat(Course course, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
+
 		String pattern = "[A-Z]{2,3}[1-9]{4}";
 		if (!course.getCode().matches(pattern)) {
 			if (diagnostics != null) {

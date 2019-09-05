@@ -538,7 +538,7 @@ public class ProgramPackageImpl extends EPackageImpl implements ProgramPackage {
 		  (courseEClass,
 		   source,
 		   new String[] {
-			   "minCredits", "self.credit->sum() <= 5.0"
+			   "minCredits", "self.credit->sum() >= 5.0"
 		   });
 	}
 
