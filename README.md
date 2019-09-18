@@ -11,6 +11,11 @@ Constraints
 * Checks if the courses have atleast 5 credits. (OCL constraint)
 * Checks if the coursecode is on the right format, using regex. Regex used: "[A-Z]{2,3}[1-9]{4}" (manually Java constraint)
 
+Derived feature
+------
+Name attribute in the Semester is computed from the semestercode like: name = "semester" + code.
+Implemented by changing getter method getName() after generating code using Genmodel.
+
 Model structure
 ------
 
