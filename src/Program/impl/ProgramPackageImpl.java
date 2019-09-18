@@ -9,6 +9,7 @@ import Program.ProgramFactory;
 import Program.ProgramPackage;
 import Program.Semester;
 import Program.SemesterCourse;
+import Program.SemesterStatus;
 import Program.Specialization;
 
 import Program.util.ProgramValidator;
@@ -49,6 +50,13 @@ public class ProgramPackageImpl extends EPackageImpl implements ProgramPackage {
 	 * @generated
 	 */
 	private EClass courseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum semesterStatusEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -298,6 +306,16 @@ public class ProgramPackageImpl extends EPackageImpl implements ProgramPackage {
 	 * @generated
 	 */
 	@Override
+	public EEnum getSemesterStatus() {
+		return semesterStatusEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getSemester() {
 		return semesterEClass;
 	}
@@ -330,6 +348,16 @@ public class ProgramPackageImpl extends EPackageImpl implements ProgramPackage {
 	@Override
 	public EReference getSemester_SemesterCourses() {
 		return (EReference)semesterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSemester_Status() {
+		return (EAttribute)semesterEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -414,21 +442,23 @@ public class ProgramPackageImpl extends EPackageImpl implements ProgramPackage {
 		createEReference(specializationEClass, SPECIALIZATION__SEMESTERS);
 		createEReference(specializationEClass, SPECIALIZATION__SPECIALIZATIONS);
 
-		courseEClass = createEClass(COURSE);
-		createEAttribute(courseEClass, COURSE__NAME);
-		createEAttribute(courseEClass, COURSE__CODE);
-		createEAttribute(courseEClass, COURSE__CREDIT);
-
 		semesterEClass = createEClass(SEMESTER);
 		createEAttribute(semesterEClass, SEMESTER__NAME);
 		createEAttribute(semesterEClass, SEMESTER__CODE);
 		createEReference(semesterEClass, SEMESTER__SEMESTER_COURSES);
+		createEAttribute(semesterEClass, SEMESTER__STATUS);
 
 		semesterCourseEClass = createEClass(SEMESTER_COURSE);
 		createEAttribute(semesterCourseEClass, SEMESTER_COURSE__STATUS);
 		createEReference(semesterCourseEClass, SEMESTER_COURSE__COURSES);
 
+		courseEClass = createEClass(COURSE);
+		createEAttribute(courseEClass, COURSE__NAME);
+		createEAttribute(courseEClass, COURSE__CODE);
+		createEAttribute(courseEClass, COURSE__CREDIT);
+
 		// Create enums
+		semesterStatusEEnum = createEEnum(SEMESTER_STATUS);
 		courseStatusEEnum = createEEnum(COURSE_STATUS);
 	}
 
@@ -475,21 +505,26 @@ public class ProgramPackageImpl extends EPackageImpl implements ProgramPackage {
 		initEReference(getSpecialization_Semesters(), this.getSemester(), null, "semesters", null, 0, -1, Specialization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSpecialization_Specializations(), this.getSpecialization(), null, "specializations", null, 0, -1, Specialization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(courseEClass, Course.class, "Course", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCourse_Name(), ecorePackage.getEString(), "name", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCourse_Code(), ecorePackage.getEString(), "code", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCourse_Credit(), ecorePackage.getEFloat(), "credit", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(semesterEClass, Semester.class, "Semester", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSemester_Name(), ecorePackage.getEString(), "name", null, 0, 1, Semester.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSemester_Code(), ecorePackage.getEString(), "code", null, 0, 1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSemester_SemesterCourses(), this.getSemesterCourse(), null, "semesterCourses", null, 0, -1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSemester_Status(), this.getSemesterStatus(), "status", null, 0, 1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(semesterCourseEClass, SemesterCourse.class, "SemesterCourse", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSemesterCourse_Status(), this.getCourseStatus(), "status", null, 0, 1, SemesterCourse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSemesterCourse_Courses(), this.getCourse(), null, "courses", null, 0, 1, SemesterCourse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(courseEClass, Course.class, "Course", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCourse_Name(), ecorePackage.getEString(), "name", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCourse_Code(), ecorePackage.getEString(), "code", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCourse_Credit(), ecorePackage.getEFloat(), "credit", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
+		initEEnum(semesterStatusEEnum, SemesterStatus.class, "SemesterStatus");
+		addEEnumLiteral(semesterStatusEEnum, SemesterStatus.FALL);
+		addEEnumLiteral(semesterStatusEEnum, SemesterStatus.SPRING);
+
 		initEEnum(courseStatusEEnum, CourseStatus.class, "CourseStatus");
 		addEEnumLiteral(courseStatusEEnum, CourseStatus.MANDATORY);
 		addEEnumLiteral(courseStatusEEnum, CourseStatus.ELECTIVE);
@@ -519,6 +554,12 @@ public class ProgramPackageImpl extends EPackageImpl implements ProgramPackage {
 			   "validationDelegates", "http://www.eclipse.org/acceleo/query/1.0"
 		   });
 		addAnnotation
+		  (semesterEClass,
+		   source,
+		   new String[] {
+			   "constraints", "min30Credits"
+		   });
+		addAnnotation
 		  (courseEClass,
 		   source,
 		   new String[] {
@@ -534,6 +575,12 @@ public class ProgramPackageImpl extends EPackageImpl implements ProgramPackage {
 	 */
 	protected void create_1Annotations() {
 		String source = "http://www.eclipse.org/acceleo/query/1.0";
+		addAnnotation
+		  (semesterEClass,
+		   source,
+		   new String[] {
+			   "min30Credits", "self.semesterCourses.courses.credit -> sum()  >= 30.0"
+		   });
 		addAnnotation
 		  (courseEClass,
 		   source,

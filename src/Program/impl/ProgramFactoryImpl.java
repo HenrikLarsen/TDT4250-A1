@@ -59,9 +59,9 @@ public class ProgramFactoryImpl extends EFactoryImpl implements ProgramFactory {
 		switch (eClass.getClassifierID()) {
 			case ProgramPackage.PROGRAM: return createProgram();
 			case ProgramPackage.SPECIALIZATION: return createSpecialization();
-			case ProgramPackage.COURSE: return createCourse();
 			case ProgramPackage.SEMESTER: return createSemester();
 			case ProgramPackage.SEMESTER_COURSE: return createSemesterCourse();
+			case ProgramPackage.COURSE: return createCourse();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -75,6 +75,8 @@ public class ProgramFactoryImpl extends EFactoryImpl implements ProgramFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case ProgramPackage.SEMESTER_STATUS:
+				return createSemesterStatusFromString(eDataType, initialValue);
 			case ProgramPackage.COURSE_STATUS:
 				return createCourseStatusFromString(eDataType, initialValue);
 			default:
@@ -90,6 +92,8 @@ public class ProgramFactoryImpl extends EFactoryImpl implements ProgramFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case ProgramPackage.SEMESTER_STATUS:
+				return convertSemesterStatusToString(eDataType, instanceValue);
 			case ProgramPackage.COURSE_STATUS:
 				return convertCourseStatusToString(eDataType, instanceValue);
 			default:
@@ -128,6 +132,26 @@ public class ProgramFactoryImpl extends EFactoryImpl implements ProgramFactory {
 	public Course createCourse() {
 		CourseImpl course = new CourseImpl();
 		return course;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SemesterStatus createSemesterStatusFromString(EDataType eDataType, String initialValue) {
+		SemesterStatus result = SemesterStatus.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSemesterStatusToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

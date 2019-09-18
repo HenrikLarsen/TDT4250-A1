@@ -6,6 +6,10 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>program.ecore</foreignModel>
   <genPackages prefix="Program" disposableProviderFactory="true" ecorePackage="program.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="program.ecore#//SemesterStatus">
+      <genEnumLiterals ecoreEnumLiteral="program.ecore#//SemesterStatus/FALL"/>
+      <genEnumLiterals ecoreEnumLiteral="program.ecore#//SemesterStatus/SPRING"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="program.ecore#//CourseStatus">
       <genEnumLiterals ecoreEnumLiteral="program.ecore#//CourseStatus/MANDATORY"/>
       <genEnumLiterals ecoreEnumLiteral="program.ecore#//CourseStatus/ELECTIVE"/>
@@ -23,19 +27,20 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference program.ecore#//Specialization/semesters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference program.ecore#//Specialization/specializations"/>
     </genClasses>
-    <genClasses ecoreClass="program.ecore#//Course">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute program.ecore#//Course/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute program.ecore#//Course/code"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute program.ecore#//Course/credit"/>
-    </genClasses>
     <genClasses ecoreClass="program.ecore#//Semester">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute program.ecore#//Semester/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute program.ecore#//Semester/code"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference program.ecore#//Semester/semesterCourses"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute program.ecore#//Semester/status"/>
     </genClasses>
     <genClasses ecoreClass="program.ecore#//SemesterCourse">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute program.ecore#//SemesterCourse/status"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference program.ecore#//SemesterCourse/courses"/>
+    </genClasses>
+    <genClasses ecoreClass="program.ecore#//Course">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute program.ecore#//Course/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute program.ecore#//Course/code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute program.ecore#//Course/credit"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

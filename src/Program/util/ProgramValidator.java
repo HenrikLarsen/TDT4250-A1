@@ -90,12 +90,14 @@ public class ProgramValidator extends EObjectValidator {
 				return validateProgram((Program)value, diagnostics, context);
 			case ProgramPackage.SPECIALIZATION:
 				return validateSpecialization((Specialization)value, diagnostics, context);
-			case ProgramPackage.COURSE:
-				return validateCourse((Course)value, diagnostics, context);
 			case ProgramPackage.SEMESTER:
 				return validateSemester((Semester)value, diagnostics, context);
 			case ProgramPackage.SEMESTER_COURSE:
 				return validateSemesterCourse((SemesterCourse)value, diagnostics, context);
+			case ProgramPackage.COURSE:
+				return validateCourse((Course)value, diagnostics, context);
+			case ProgramPackage.SEMESTER_STATUS:
+				return validateSemesterStatus((SemesterStatus)value, diagnostics, context);
 			case ProgramPackage.COURSE_STATUS:
 				return validateCourseStatus((CourseStatus)value, diagnostics, context);
 			default:
@@ -202,8 +204,56 @@ public class ProgramValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateSemesterStatus(SemesterStatus semesterStatus, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateSemester(Semester semester, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(semester, diagnostics, context);
+		if (!validate_NoCircularContainment(semester, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(semester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(semester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(semester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(semester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(semester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(semester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(semester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(semester, diagnostics, context);
+		if (result || diagnostics != null) result &= validateSemester_min30Credits(semester, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the min30Credits constraint of '<em>Semester</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String SEMESTER__MIN30_CREDITS__EEXPRESSION = "self.semesterCourses.courses.credit -> sum()  >= 30.0";
+
+	/**
+	 * Validates the min30Credits constraint of '<em>Semester</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSemester_min30Credits(Semester semester, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(ProgramPackage.Literals.SEMESTER,
+				 semester,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "min30Credits",
+				 SEMESTER__MIN30_CREDITS__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**

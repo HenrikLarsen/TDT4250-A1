@@ -78,12 +78,6 @@ public class ProgramSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ProgramPackage.COURSE: {
-				Course course = (Course)theEObject;
-				T result = caseCourse(course);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ProgramPackage.SEMESTER: {
 				Semester semester = (Semester)theEObject;
 				T result = caseSemester(semester);
@@ -93,6 +87,12 @@ public class ProgramSwitch<T> extends Switch<T> {
 			case ProgramPackage.SEMESTER_COURSE: {
 				SemesterCourse semesterCourse = (SemesterCourse)theEObject;
 				T result = caseSemesterCourse(semesterCourse);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ProgramPackage.COURSE: {
+				Course course = (Course)theEObject;
+				T result = caseCourse(course);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

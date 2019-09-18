@@ -76,16 +76,16 @@ public class ProgramAdapterFactory extends AdapterFactoryImpl {
 				return createSpecializationAdapter();
 			}
 			@Override
-			public Adapter caseCourse(Course object) {
-				return createCourseAdapter();
-			}
-			@Override
 			public Adapter caseSemester(Semester object) {
 				return createSemesterAdapter();
 			}
 			@Override
 			public Adapter caseSemesterCourse(SemesterCourse object) {
 				return createSemesterCourseAdapter();
+			}
+			@Override
+			public Adapter caseCourse(Course object) {
+				return createCourseAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {

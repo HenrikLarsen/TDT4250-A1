@@ -203,7 +203,127 @@ public interface ProgramPackage extends EPackage {
 	 * @see Program.impl.ProgramPackageImpl#getCourse()
 	 * @generated
 	 */
-	int COURSE = 2;
+	int COURSE = 4;
+
+	/**
+	 * The meta object id for the '{@link Program.SemesterStatus <em>Semester Status</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see Program.SemesterStatus
+	 * @see Program.impl.ProgramPackageImpl#getSemesterStatus()
+	 * @generated
+	 */
+	int SEMESTER_STATUS = 5;
+
+	/**
+	 * The meta object id for the '{@link Program.impl.SemesterImpl <em>Semester</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see Program.impl.SemesterImpl
+	 * @see Program.impl.ProgramPackageImpl#getSemester()
+	 * @generated
+	 */
+	int SEMESTER = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMESTER__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMESTER__CODE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Semester Courses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMESTER__SEMESTER_COURSES = 2;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMESTER__STATUS = 3;
+
+	/**
+	 * The number of structural features of the '<em>Semester</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMESTER_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Semester</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMESTER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link Program.impl.SemesterCourseImpl <em>Semester Course</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see Program.impl.SemesterCourseImpl
+	 * @see Program.impl.ProgramPackageImpl#getSemesterCourse()
+	 * @generated
+	 */
+	int SEMESTER_COURSE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMESTER_COURSE__STATUS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Courses</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMESTER_COURSE__COURSES = 1;
+
+	/**
+	 * The number of structural features of the '<em>Semester Course</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMESTER_COURSE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Semester Course</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMESTER_COURSE_OPERATION_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -251,107 +371,6 @@ public interface ProgramPackage extends EPackage {
 	int COURSE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link Program.impl.SemesterImpl <em>Semester</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see Program.impl.SemesterImpl
-	 * @see Program.impl.ProgramPackageImpl#getSemester()
-	 * @generated
-	 */
-	int SEMESTER = 3;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMESTER__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMESTER__CODE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Semester Courses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMESTER__SEMESTER_COURSES = 2;
-
-	/**
-	 * The number of structural features of the '<em>Semester</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMESTER_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Semester</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMESTER_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link Program.impl.SemesterCourseImpl <em>Semester Course</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see Program.impl.SemesterCourseImpl
-	 * @see Program.impl.ProgramPackageImpl#getSemesterCourse()
-	 * @generated
-	 */
-	int SEMESTER_COURSE = 4;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMESTER_COURSE__STATUS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Courses</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMESTER_COURSE__COURSES = 1;
-
-	/**
-	 * The number of structural features of the '<em>Semester Course</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMESTER_COURSE_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Semester Course</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMESTER_COURSE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link Program.CourseStatus <em>Course Status</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -359,7 +378,7 @@ public interface ProgramPackage extends EPackage {
 	 * @see Program.impl.ProgramPackageImpl#getCourseStatus()
 	 * @generated
 	 */
-	int COURSE_STATUS = 5;
+	int COURSE_STATUS = 6;
 
 
 	/**
@@ -525,6 +544,16 @@ public interface ProgramPackage extends EPackage {
 	EAttribute getCourse_Credit();
 
 	/**
+	 * Returns the meta object for enum '{@link Program.SemesterStatus <em>Semester Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Semester Status</em>'.
+	 * @see Program.SemesterStatus
+	 * @generated
+	 */
+	EEnum getSemesterStatus();
+
+	/**
 	 * Returns the meta object for class '{@link Program.Semester <em>Semester</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -566,6 +595,17 @@ public interface ProgramPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSemester_SemesterCourses();
+
+	/**
+	 * Returns the meta object for the attribute '{@link Program.Semester#getStatus <em>Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Status</em>'.
+	 * @see Program.Semester#getStatus()
+	 * @see #getSemester()
+	 * @generated
+	 */
+	EAttribute getSemester_Status();
 
 	/**
 	 * Returns the meta object for class '{@link Program.SemesterCourse <em>Semester Course</em>}'.
@@ -759,6 +799,16 @@ public interface ProgramPackage extends EPackage {
 		EAttribute COURSE__CREDIT = eINSTANCE.getCourse_Credit();
 
 		/**
+		 * The meta object literal for the '{@link Program.SemesterStatus <em>Semester Status</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see Program.SemesterStatus
+		 * @see Program.impl.ProgramPackageImpl#getSemesterStatus()
+		 * @generated
+		 */
+		EEnum SEMESTER_STATUS = eINSTANCE.getSemesterStatus();
+
+		/**
 		 * The meta object literal for the '{@link Program.impl.SemesterImpl <em>Semester</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -791,6 +841,14 @@ public interface ProgramPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SEMESTER__SEMESTER_COURSES = eINSTANCE.getSemester_SemesterCourses();
+
+		/**
+		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEMESTER__STATUS = eINSTANCE.getSemester_Status();
 
 		/**
 		 * The meta object literal for the '{@link Program.impl.SemesterCourseImpl <em>Semester Course</em>}' class.

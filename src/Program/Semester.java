@@ -18,10 +18,12 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link Program.Semester#getName <em>Name</em>}</li>
  *   <li>{@link Program.Semester#getCode <em>Code</em>}</li>
  *   <li>{@link Program.Semester#getSemesterCourses <em>Semester Courses</em>}</li>
+ *   <li>{@link Program.Semester#getStatus <em>Status</em>}</li>
  * </ul>
  *
  * @see Program.ProgramPackage#getSemester()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='min30Credits'"
+ *        annotation="http://www.eclipse.org/acceleo/query/1.0 min30Credits='self.semesterCourses.courses.credit -&gt; sum()  &gt;= 30.0'"
  * @generated
  */
 public interface Semester extends EObject {
@@ -69,5 +71,30 @@ public interface Semester extends EObject {
 	 * @generated
 	 */
 	EList<SemesterCourse> getSemesterCourses();
+
+	/**
+	 * Returns the value of the '<em><b>Status</b></em>' attribute.
+	 * The literals are from the enumeration {@link Program.SemesterStatus}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Status</em>' attribute.
+	 * @see Program.SemesterStatus
+	 * @see #setStatus(SemesterStatus)
+	 * @see Program.ProgramPackage#getSemester_Status()
+	 * @model
+	 * @generated
+	 */
+	SemesterStatus getStatus();
+
+	/**
+	 * Sets the value of the '{@link Program.Semester#getStatus <em>Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status</em>' attribute.
+	 * @see Program.SemesterStatus
+	 * @see #getStatus()
+	 * @generated
+	 */
+	void setStatus(SemesterStatus value);
 
 } // Semester

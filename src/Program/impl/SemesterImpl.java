@@ -6,6 +6,7 @@ import Program.ProgramPackage;
 import Program.Semester;
 import Program.SemesterCourse;
 
+import Program.SemesterStatus;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link Program.impl.SemesterImpl#getName <em>Name</em>}</li>
  *   <li>{@link Program.impl.SemesterImpl#getCode <em>Code</em>}</li>
  *   <li>{@link Program.impl.SemesterImpl#getSemesterCourses <em>Semester Courses</em>}</li>
+ *   <li>{@link Program.impl.SemesterImpl#getStatus <em>Status</em>}</li>
  * </ul>
  *
  * @generated
@@ -77,6 +79,26 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * @ordered
 	 */
 	protected EList<SemesterCourse> semesterCourses;
+
+	/**
+	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final SemesterStatus STATUS_EDEFAULT = SemesterStatus.FALL;
+
+	/**
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected SemesterStatus status = STATUS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -149,6 +171,29 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * @generated
 	 */
 	@Override
+	public SemesterStatus getStatus() {
+		return status;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setStatus(SemesterStatus newStatus) {
+		SemesterStatus oldStatus = status;
+		status = newStatus == null ? STATUS_EDEFAULT : newStatus;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ProgramPackage.SEMESTER__STATUS, oldStatus, status));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ProgramPackage.SEMESTER__SEMESTER_COURSES:
@@ -171,6 +216,8 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				return getCode();
 			case ProgramPackage.SEMESTER__SEMESTER_COURSES:
 				return getSemesterCourses();
+			case ProgramPackage.SEMESTER__STATUS:
+				return getStatus();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -191,6 +238,9 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				getSemesterCourses().clear();
 				getSemesterCourses().addAll((Collection<? extends SemesterCourse>)newValue);
 				return;
+			case ProgramPackage.SEMESTER__STATUS:
+				setStatus((SemesterStatus)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -208,6 +258,9 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				return;
 			case ProgramPackage.SEMESTER__SEMESTER_COURSES:
 				getSemesterCourses().clear();
+				return;
+			case ProgramPackage.SEMESTER__STATUS:
+				setStatus(STATUS_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -227,6 +280,8 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
 			case ProgramPackage.SEMESTER__SEMESTER_COURSES:
 				return semesterCourses != null && !semesterCourses.isEmpty();
+			case ProgramPackage.SEMESTER__STATUS:
+				return status != STATUS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -243,6 +298,8 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (code: ");
 		result.append(code);
+		result.append(", status: ");
+		result.append(status);
 		result.append(')');
 		return result.toString();
 	}
