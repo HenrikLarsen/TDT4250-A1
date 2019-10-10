@@ -7,21 +7,24 @@
     xsi:schemaLocation="https://TDT4250/assignment/program program.ecore"
     name="IDI">
   <programs
-      name="Programvareutvikling"
+      name="Datateknologi"
       year="2.0">
-    <semesters
-        code="1">
-      <semesterCourses
-          course="//@courses.0"/>
-      <semesterCourses
-          status="ELECTIVE"
-          course="//@courses.1"/>
-      <semesterCourses
-          course="//@courses.2"/>
-      <semesterCourses
-          status="ELECTIVE"
-          course="//@courses.3"/>
-    </semesters>
+    <specializations
+        name="Programvareutvikling">
+      <semesters
+          code="1">
+        <semesterCourses
+            course="//@courses.0"/>
+        <semesterCourses
+            course="//@courses.2"/>
+        <semesterCourses
+            status="ELECTIVE"
+            course="//@courses.1"/>
+        <semesterCourses
+            status="ELECTIVE"
+            course="//@courses.3"/>
+      </semesters>
+    </specializations>
   </programs>
   <courses name="Intro til AI"
       code="TDT4350"
